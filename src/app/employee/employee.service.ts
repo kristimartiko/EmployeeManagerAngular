@@ -18,11 +18,11 @@ export class EmployeeService {
     return this.http.post<Employee>(`http://localhost:8787/employee/add`, employee);
   }
 
-  public updateEmployee(employee: Employee, id: number): Observable<Employee> {
-    return this.http.put<Employee>(`http://localhost:8787/employee/update/${id}`, employee);
+  public updateEmployee(employee: Employee): Observable<Employee> {
+    return this.http.put<Employee>(`http://localhost:8787/employee/update/${employee.id}`, employee);
   }
 
-  public deleteEmployee(id: number): Observable<void> {
-    return this.http.delete<void>(`http://localhost:8787/employee/delete/${id}`);
+  public deleteEmployee(employee: Employee): Observable<void> {
+    return this.http.delete<void>(`http://localhost:8787/employee/delete/${employee.id}`);
   }
 }

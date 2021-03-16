@@ -1,23 +1,7 @@
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" style="color:white;">Employee Manager</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarColor02">
-       <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-             <a class="nav-link" type="button" data-toggle="modal" data-target="#exampleModal">Add Employee</a>
-          </li>
-       </ul>
-       <form class="form-inline navbar-right">
-          <input type="search" name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search employees..." required>
-       </form>
-    </div>
-  </nav>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <div class="container">
     <div class="row">
-        <div class="col-md-4" *ngFor="let employee of employees">
+        <div class="col-md-4" *ngFor="let employee of employees; let i = index">
             <div class="contact-box center-version">
                 <a href="#profile.html">
                     <img alt="image" class="img-circle" [src]="employee.imageUrl">
@@ -32,8 +16,8 @@
                 </a>
                 <div class="contact-box-footer">
                     <div class="m-t-xs btn-group">
-                        <a class="btn btn-md btn-white"><i class="glyphicon glyphicon-edit"></i></a>
-                        <a class="btn btn-md btn-white"><i class="glyphicon glyphicon-trash"></i></a>
+                        <a class="btn btn-md btn-white" (click)="updateEmployee(employee)"><i class="glyphicon glyphicon-edit"></i></a>
+                        <a class="btn btn-md btn-white" (click)="deleteEmployee(i)"><i class="glyphicon glyphicon-trash"></i></a>
                     </div>
                 </div>
         

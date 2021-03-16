@@ -1,1 +1,49 @@
-<p>managment works!</p>
+<button (click)="onClose()" class="btn btn-primary btn-sm pull-right">X</button>
+<h2 mat-dialog-title style="text-align: center;">{{isUpdate? 'Edit': 'Add'}} Employee!</h2>
+<mat-dialog-content class="create-form">
+    <form  [formGroup]="employeeEditForm">
+        <div class="form-group">
+            <label for="name">Employee Name:</label>
+            <input type="text" class="form-control" placeholder="Enter Employee Name" name="employee_name"
+                formControlName="name">
+                <span
+                *ngIf="!employeeEditForm.get('name').valid && employeeEditForm.get('name').touched"
+                 class="help-block red">Please enter a valid name!</span>
+        </div>
+        <div class="form-group">
+            <label for="email">Employee Email:</label>
+            <input type="email" class="form-control" placeholder="Enter Employee Email" name="employee_email"
+                formControlName="email">
+                <span
+                *ngIf="!employeeEditForm.get('email').valid && employeeEditForm.get('email').touched"
+                 class="help-block red">Please enter a valid email!</span>
+        </div>
+        <div class="form-group">
+            <label for="jobTitle">Employee JobTitle:</label>
+            <input type="text" class="form-control" placeholder="Enter Employee JobTitle" name="employee_jobTitle"
+                formControlName="jobTitle">
+                <span
+                *ngIf="!employeeEditForm.get('jobTitle').valid && employeeEditForm.get('jobTitle').touched"
+                 class="help-block red">Please enter a valid jobTitle!</span>
+        </div>
+        <div class="form-group">
+            <label for="phone">Employee Phone:</label>
+            <input type="text" class="form-control" placeholder="Enter Employee Phone" name="employee_phone"
+                formControlName="phone">
+                <span
+                *ngIf="!employeeEditForm.get('phone').valid && employeeEditForm.get('phone').touched"
+                 class="help-block red">Please enter a valid phone!</span>
+        </div>
+        <div class="form-group">
+            <label for="name">Employee ImageUrl:</label>
+            <input type="text" class="form-control" placeholder="Enter Employee ImageUrl" name="employee_imageUrl"
+                formControlName="imageUrl">
+                <span
+                *ngIf="!employeeEditForm.get('imageUrl').valid && employeeEditForm.get('imageUrl').touched"
+                 class="help-block red">Please enter a valid imageUrl!</span>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button type="button" (click)="onSubmit()" class="animation">{{isUpdate ? 'Edit Employee': 'Add Employee'}}</button>
+</mat-dialog-actions>
