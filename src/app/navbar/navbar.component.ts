@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
 import { Employee } from '../employee/employee.model';
 import { EmployeeService } from '../employee/employee.service';
 import { ManagmentComponent } from '../managment/managment.component';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,9 +13,11 @@ import { ManagmentComponent } from '../managment/managment.component';
 export class NavbarComponent implements OnInit {
 
   private employees: Employee[];
+  searchText: string;
 
   constructor(public dialog: MatDialog,
-              private employeeService: EmployeeService) { }
+              private employeeService: EmployeeService,
+              private data: DataService) { }
 
   ngOnInit(): void {
   }
@@ -29,6 +32,10 @@ export class NavbarComponent implements OnInit {
         })
       }
     })
+  }
+
+  onSearch() {
+    this.data.changeMessage(document.querySelector('input').value);
   }
 
 }

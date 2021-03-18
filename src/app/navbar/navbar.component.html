@@ -11,7 +11,8 @@
           </li>
        </ul>
        <form class="form-inline navbar-right">
-          <input type="search" name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search employees..." required>
+          <input type="search" name="key" [(ngModel)]="searchText" id="searchName" class="form-control mr-sm-2" placeholder="Search employees..." required>
+          <button (click)="onSearch()"><i class="glyphicon glyphicon-search"></i></button>
        </form>
     </div>
   </nav>

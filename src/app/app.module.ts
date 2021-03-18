@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FilterPipe } from './employee/filter.pipe';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     EmployeeComponent,
     ManagmentComponent,
-    NavbarComponent
+    NavbarComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
